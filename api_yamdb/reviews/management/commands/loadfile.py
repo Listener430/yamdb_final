@@ -3,7 +3,8 @@ import csv
 from django.apps import apps
 from django.core.management.base import BaseCommand
 
-"""python manage.py loadfile --path "./static/data/genre.csv" --model_name "Genre"""
+"""python manage.py loadfile --path "./static/data/genre.csv"""
+""" --model_name "Genre"""
 
 
 class Command(BaseCommand):
@@ -13,6 +14,7 @@ class Command(BaseCommand):
         parser.add_argument("--path", type=str, help="file path")
         parser.add_argument("--model_name", type=str, help="model name")
 
+    # flake8: noqa: C901
     def handle(self, *args, **options):
         file_path = options["path"]
         _model = apps.get_model("reviews", options["model_name"])
