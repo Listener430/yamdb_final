@@ -1,16 +1,8 @@
 from django.utils import timezone
 from rest_framework import serializers
 from rest_framework.validators import UniqueTogetherValidator
-
+from reviews.models import Category, Comment, Genre, Review, Title, User
 from users.models import User
-from reviews.models import (
-    Category,
-    Genre,
-    Title,
-    Review,
-    Comment,
-    User,
-)
 
 
 class CategorySerializer(serializers.ModelSerializer):

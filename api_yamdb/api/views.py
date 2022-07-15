@@ -1,39 +1,21 @@
 from django.db.models import Avg
 from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import viewsets, filters, status
-from rest_framework.pagination import LimitOffsetPagination
-from rest_framework.permissions import (
-    IsAuthenticated,
-    IsAuthenticatedOrReadOnly,
-)
+from rest_framework import filters, status, viewsets
 from rest_framework.decorators import action
+from rest_framework.pagination import LimitOffsetPagination
+from rest_framework.permissions import (IsAuthenticated,
+                                        IsAuthenticatedOrReadOnly)
 from rest_framework.response import Response
+from reviews.models import Category, Genre, Review, Title, User
 
-from .permissions import (
-    IsAdminOrReadOnly,
-    IsAdminRole,
-    IsAdminModerator,
-)
-from reviews.models import (
-    Category,
-    Genre,
-    Title,
-    Review,
-    User,
-)
-from .serializers import (
-    CategorySerializer,
-    GenreSerializer,
-    TitleSerializerReadOnly,
-    TitleSerializerWriteOnly,
-    ReviewSerializer,
-    CommentSerializer,
-    UserSerializer,
-    AdminUserSerializer,
-)
 from .filters import TitleFilter
 from .mixins import CreateDestroyListMixin
+from .permissions import IsAdminModerator, IsAdminOrReadOnly, IsAdminRole
+from .serializers import (AdminUserSerializer, CategorySerializer,
+                          CommentSerializer, GenreSerializer, ReviewSerializer,
+                          TitleSerializerReadOnly, TitleSerializerWriteOnly,
+                          UserSerializer)
 
 
 class CategoryViewSet(CreateDestroyListMixin):
@@ -112,8 +94,7 @@ class CommentViewSet(viewsets.ModelViewSet):
             Review,
             id=self.kwargs["review_id"],
         )
-        queryset = review.comments.all()
-        return queryset
+        return review.comments.all()
 
     def perform_create(self, serializer):
         serializer.save(
