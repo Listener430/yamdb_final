@@ -74,6 +74,11 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
+            # Выполняет pull образа с DockerHub
+            sudo docker pull listener123/yamdb_final
+            #остановка всех контейнеров
+            sudo docker stop $(sudo docker ps -a -q)
+            sudo docker run --rm -d -p 5000:5000 listener123/yamdb_final
             sudo docker-compose stop
             sudo docker-compose rm web
             touch .env
