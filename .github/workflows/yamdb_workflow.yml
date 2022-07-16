@@ -58,9 +58,9 @@ jobs:
         # Пуш образа в Docker Hub 
         uses: docker/build-push-action@v2 
         with:
-        context: .
-          push: true
-          tags: listener123/yamdb_final:latest 
+          context: .
+            push: true
+            tags: listener123/yamdb_final:latest 
 
   deploy:
     runs-on: ubuntu-latest
