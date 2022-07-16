@@ -12,7 +12,7 @@ services:
 
   web:
 
-    build: ../api_yamdb
+    image: infra_web:latest
     restart: always
     volumes:
       - static_value:/app/static/
