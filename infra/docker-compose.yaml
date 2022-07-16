@@ -12,7 +12,7 @@ services:
 
   web:
     #build: ../api_yamdb
-    image: listener123/infra_web:latest
+    image: listener123/yamdb_final:latest
     restart: always
     volumes:
       - static_value:/app/static/
