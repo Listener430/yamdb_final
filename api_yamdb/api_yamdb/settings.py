@@ -92,10 +92,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTH_USER_MODEL = "users.User"
 
-AUTHENTICATION_BACKENDS = [
-    "django.core.mail.backends.console.EmailBackend",
-]
-
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 
 ADMIN_EMAIL = "nemykin.eu@yandex.ru"
