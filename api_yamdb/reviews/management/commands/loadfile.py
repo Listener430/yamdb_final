@@ -16,6 +16,7 @@ class Command(BaseCommand):
 
     # flake8: noqa: C901
     def handle(self, *args, **options):
+        # noqa: C901
         file_path = options["path"]
         _model = apps.get_model("reviews", options["model_name"])
         with open(file_path, "r", encoding="utf8") as csv_file:
