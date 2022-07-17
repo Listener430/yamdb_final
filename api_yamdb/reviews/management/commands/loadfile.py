@@ -14,10 +14,8 @@ class Command(BaseCommand):
         parser.add_argument("--path", type=str, help="file path")
         parser.add_argument("--model_name", type=str, help="model name")
 
-    # flake8: noqa: C901
     # noqa: C901
-    def handle(self, *args, **options):
-        # noqa: C901
+    def handle(self, *args, **options):  # noqa: C901
         file_path = options["path"]
         _model = apps.get_model("reviews", options["model_name"])
         with open(file_path, "r", encoding="utf8") as csv_file:
