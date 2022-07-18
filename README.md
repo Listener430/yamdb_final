@@ -1,8 +1,8 @@
 # yamdb_final
 ![Django-app workflow](https://github.com/Listener430/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 
-# Описание
-
+# Описание/Автор
+Калмыкова Надежда
 API для проекта Yatube c Django-app workflow
 
 Функционал:
