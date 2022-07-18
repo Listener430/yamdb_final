@@ -11,8 +11,8 @@ services:
       - ./.env
 
   web:
-
-    image: listener123/yamdb_final:latest
+    build: ../api_yamdb
+    #image: listener123/yamdb_final:latest
     restart: always
     volumes:
       - static_value:/app/static/
