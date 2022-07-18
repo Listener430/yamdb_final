@@ -9,7 +9,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = os.getenv("SECRET_KEY", default="fake_key")
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -91,8 +91,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTH_USER_MODEL = "users.User"
-
-EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 
 ADMIN_EMAIL = "nemykin.eu@yandex.ru"
 
